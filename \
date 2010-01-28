@@ -1,0 +1,33 @@
+
+require 'rubygems'
+require 'sinatra'
+
+before do
+  headers "Content-Type" => "text/html; charset=utf-8" 
+ end
+
+get '/' do
+  @title="Fortune Finder 1.0"
+  erb :form
+end
+
+post '/fortune' do
+ @dirty=["in bed", "with your best friends mom", "with great pride in your own private parts", "with penis in thy ear", "back and forth with the same poop forever", "for sex and for money", "with sex toy in hand"]
+ @oldpersonfortune=["your hip will break", "your viagara subscription may run out before you know it", "you will be hospitalized within the next week for any number of reasons", "you will find love but he or she will be 70", "owch, you're that old?"]
+ @fortune=["you have many friends and are well liked", "you will have great success in many endeavors", "you will get money in the mail", "you will have success in every aspect of your life", "youngins like peanuts"] 
+ @birthyear= params[:birthyear] 
+    if @birthyear.to_i < 1968 
+    @oldpersonfortune[rand(5)]
+    else 
+    @fortune[rand(5)]
+    end
+
+@xxx= params[:birthyear]
+ if @birthyear.to_i < 1968
+  @oldpersonfortune[rand(5)]
+ else 
+   "You're too young for this."
+end
+
+
+__END__

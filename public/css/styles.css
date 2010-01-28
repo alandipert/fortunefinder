@@ -1,0 +1,39 @@
+body {
+  font-family: sans-serif;
+  size: 18px;
+  color: pink;
+  background-color: grey;
+}
+
+div#containerpoo {
+  margin-right: auto;
+  margin-left: auto;
+  width: 500px;
+}
+table {
+ text-align: center;
+ padding: 4px;
+ margin: auto;
+ }
+
+.formtext {
+  color: blue;
+  font-size: 30px;
+text-align: center;
+}
+
+
+div#fortuneblock {
+  margin-right: auto;
+  margin-left: auto;
+  width: 400px;
+  background: black;
+}
+
+
+.button {
+  margin-right: auto;
+  margin-left: auto;
+  width: 130px;
+}
+
