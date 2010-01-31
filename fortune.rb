@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'sinatra'
 
-def getfortune(birthyear, wantsdirty)
+def get_fortune(birthyear, wants_dirty)
 
   fortunes=[
    "You will make new friends this year", 
@@ -11,14 +11,16 @@ def getfortune(birthyear, wantsdirty)
    "You will have great success in many endeavors", 
    "You will receive money in the mail", 
    "You will have success in every aspect of your life", 
-   "You will come up with the next great idea of this generation" ] 
+   "You will come up with the next great idea of this generation" 
+  ] 
 
   oldfortunes=[
    "Your hip will break", 
    "Your viagara subscription may run out before you know it",
    "You will be hospitalized within the next week for any number of reasons",
    "You will find love but he or she will be toothless",
-   "Hold on, you are how old?" ]
+   "Hold on, you are how old?" 
+  ]
 
   dirtyendings=[
     " in bed during the ride of your life", 
@@ -31,18 +33,20 @@ def getfortune(birthyear, wantsdirty)
     " but its too bad you will get chlamydia from a stripper",
     " but sometimes even a blow job won't help you succeed", 
     " but your private parts may not be as safe as you think they are", 
-    " with sex toy in hand" ]
+    " with sex toy in hand" 
+  ]
 
+  year = Time.now.year
 
-  if birthyear < 1998
-   # person born before 1998
+  if birthyear <= year - 18
+   # person 18 or older
 
-   if birthyear < 1968
-     # person born before 1968. geezer!
+   if birthyear <= year - 40
+     # person's over 40. geezer!
      fortunes = oldfortunes
    end
 
-   if wantsdirty
+   if wants_dirty
      # combine fortunes with dirty endings
      fortunes = fortunes.zip(dirtyendings).map{|pair| pair.inject(:+)}
    end
@@ -67,6 +71,6 @@ end
 
 post '/fortune' do
   @title="Your fortune is revealed"
-  @fortune = getfortune(params[:birthyear].to_i, params[:dirtyfortune])
+  @fortune = get_fortune(params[:birthyear].to_i, params[:dirtyfortune])
   erb :fortune
 end
