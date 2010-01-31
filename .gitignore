@@ -1,5 +1,4 @@
-*.erb.swp
-*.rb.swp
-*.rb.swo
+*.swp
+*.swo
 
 
