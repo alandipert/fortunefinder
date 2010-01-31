@@ -1,3 +1,2 @@
 require 'fortune'
-
-run Sinatra::Application
+run FortuneApp
